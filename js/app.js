@@ -74,6 +74,15 @@ angular.module('ionicApp', ['ionic'])
         url: '/tab2page1',
         views: {
           'tab2': {
+            controller:function($scope, message){
+              $scope.testing = 'hi there';
+              $scope.message = message;
+            },
+            resolve: {
+              message: function (messageService) {
+                return messageService.getMessage();
+              }
+            },
             templateUrl: 'tab2page1.html'
           }
         }
@@ -82,7 +91,16 @@ angular.module('ionicApp', ['ionic'])
         url: '/tab2page2',
         views: {
           'tab2': {
-            templateUrl: 'tab2page2.html'
+            templateUrl: 'tab2page2.html',
+            controller:function($scope, ipsum){
+              $scope.ipsum = ipsum.data.text;
+              console.log(ipsum)
+            },
+            resolve: {
+              ipsum: function (ajaxService) {
+                return ajaxService.getHipsterIpsum();
+              }
+            },
           }
         }
       })
@@ -90,7 +108,13 @@ angular.module('ionicApp', ['ionic'])
         url: '/tab2page3',
         views: {
           'tab2': {
-            templateUrl: 'tab2page3.html'
+            templateUrl: 'tab2page3.html',
+            controller: 'TabsSecondGrandchildPageController',
+            resolve: {
+              posts: function (ajaxService) {
+                return ajaxService.getFrontPage();
+              }
+            }
           }
         }
       });
@@ -114,14 +138,43 @@ angular.module('ionicApp', ['ionic'])
     $scope.navTitle = 'Root Page';
   }])
 
-  .controller('MenuHomeController', [ '$scope', '$state', function($scope, $state) {
+  .controller('MenuHomeController', [ '$scope', '$state', function($scope) {
     $scope.navTitle = 'Menu Home Page';
   }])
 
-  .controller('MenuInfoController', [ '$scope', '$state', function($scope, $state) {
+  .controller('MenuInfoController', [ '$scope', '$state', function($scope) {
     $scope.navTitle = 'Menu Info Page';
   }])
 
-  .controller('TabsPageController', [ '$scope', '$state', function($scope, $state) {
+  .controller('TabsPageController', [ '$scope', '$state', function($scope) {
     $scope.navTitle = 'Tab Page';
-  }]);
+  }])
+
+  .controller('TabsFirstPageController', [ '$scope', '$state', function($scope, $state) {
+    $scope.navTitle = 'Tab Page';
+  }])
+
+  .controller('TabsSecondGrandchildPageController', [ '$scope', 'posts', function($scope, posts) {
+    console.log(posts)
+    $scope.posts = posts.data;
+  }])
+
+  .factory("messageService", function($q){
+    return {
+      getMessage: function(){
+        return $q.when("Hello From the messageService");
+      }
+    };
+  })
+  .factory("ajaxService", function($q, $http){
+    return {
+      getFrontPage: function(){
+        return $http.get('http://hn-api.ionic.io/frontpage/1');
+      },
+      getHipsterIpsum: function(){
+        return $http.get('http://hipsterjesus.com/api/?paras=99');
+      }
+    };
+  })
+
+;
