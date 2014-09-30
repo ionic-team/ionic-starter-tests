@@ -1,35 +1,25 @@
-<ion-view title="{{navTitle}}">
+<ion-tabs class="tabs-icon-top tabs-royal">
 
-  <ion-nav-bar class="bar-royal">
-    <ion-nav-back-button class="button-clear">
-      <i class="ion-arrow-left-c"></i> Back
-    </ion-nav-back-button>
-  </ion-nav-bar>
+  <ion-tab title="tab-first" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" href="#/tab/first">
+    <ion-nav-view name="tab-first"></ion-nav-view>
+  </ion-tab>
 
-  <ion-tabs class="tabs-icon-top tabs-royal">
+  <ion-tab title="tab-second" icon-on="ion-ios7-star" icon-off="ion-ios7-star-outline" href="#/tab/second">
+    <ion-nav-view name="tab-second"></ion-nav-view>
+  </ion-tab>
 
-    <ion-tab title="tab-first" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" href="#/tab/first">
-      <ion-nav-view name="tab-first"></ion-nav-view>
-    </ion-tab>
+  <ion-tab title="ion-view" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
+    <ion-view title="Tab View 3 Title">
+      <ion-content padding="true">
+        <h2>Tab 3 Content</h2>
+      </ion-content>
+    </ion-view>
+  </ion-tab>
 
-    <ion-tab title="tab-second" icon-on="ion-ios7-star" icon-off="ion-ios7-star-outline" href="#/tab/second">
-      <ion-nav-view name="tab-second"></ion-nav-view>
-    </ion-tab>
+  <ion-tab title="Side Menus" icon="ion-ios7-browsers-outline" href="#/main/home">
+  </ion-tab>
 
-    <ion-tab title="ion-view" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
-      <ion-view title="Tab View 3 Title">
-        <ion-content padding="true">
-          <h2>Tab 3 Content</h2>
-        </ion-content>
-      </ion-view>
-    </ion-tab>
+  <ion-tab title="Home" icon="ion-ios7-home-outline" href="#/entry">
+  </ion-tab>
 
-    <ion-tab title="Side Menus" icon="ion-ios7-browsers-outline" href="#/main/home">
-    </ion-tab>
-
-    <ion-tab title="Home" icon="ion-ios7-home-outline" href="#/entry">
-    </ion-tab>
-
-  </ion-tabs>
-
-</ion-view>
+</ion-tabs>
