@@ -5,10 +5,10 @@ angular.module('ionicApp', ['ionic'])
     $stateProvider
 
       // Root
-      .state('entry', {
-        url : '/entry',
-        templateUrl : 'entry.html',
-        controller : 'EntryPageController'
+      .state('root', {
+        url : '/root',
+        templateUrl : 'root.html',
+        controller : 'RootController'
       })
 
 
@@ -46,57 +46,56 @@ angular.module('ionicApp', ['ionic'])
         templateUrl: 'tabs-container.html',
         controller: 'TabsPageController'
       })
-      .state('tab.first', {
-        url: '/first',
+      .state('tab.tab1page1', {
+        url: '/tab1page1',
         views: {
-          'tab-first': {
-            templateUrl: 'tab-first.html',
-            controller: 'TabsFirstPageController'
+          'tab1': {
+            templateUrl: 'tab1page1.html'
           }
         }
       })
-      .state('tab.first-child', {
-        url: '/first/child',
+      .state('tab.tab1page2', {
+        url: '/tab1page2',
         views: {
-          'tab-first': {
-            templateUrl: 'tab-first-child.html'
+          'tab1': {
+            templateUrl: 'tab1page2.html'
           }
         }
       })
-      .state('tab.first-grandchild', {
-        url: '/first/grandchild',
+      .state('tab.tab1page3', {
+        url: '/tab1page3',
         views: {
-          'tab-first': {
-            templateUrl: 'tab-first-grandchild.html'
+          'tab1': {
+            templateUrl: 'tab1page3.html'
           }
         }
       })
-      .state('tab.second', {
-        url: '/second',
+      .state('tab.tab2page1', {
+        url: '/tab2page1',
         views: {
-          'tab-second': {
-            templateUrl: 'tab-second.html'
+          'tab2': {
+            templateUrl: 'tab2page1.html'
           }
         }
       })
-      .state('tab.second-child', {
-        url: '/second/child',
+      .state('tab.tab2page2', {
+        url: '/tab2page2',
         views: {
-          'tab-second': {
-            templateUrl: 'tab-second-child.html'
+          'tab2': {
+            templateUrl: 'tab2page2.html'
           }
         }
       })
-      .state('tab.second-grandchild', {
-        url: '/second/grandchild',
+      .state('tab.tab2page3', {
+        url: '/tab2page3',
         views: {
-          'tab-second': {
-            templateUrl: 'tab-second-grandchild.html'
+          'tab2': {
+            templateUrl: 'tab2page3.html'
           }
         }
       });
 
-    $urlRouterProvider.otherwise('/entry');
+    $urlRouterProvider.otherwise('/root');
   }])
 
   .controller('MenuController', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
@@ -111,8 +110,8 @@ angular.module('ionicApp', ['ionic'])
 
   }])
 
-  .controller('EntryPageController', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Entry Page';
+  .controller('RootController', [ '$scope', '$state', function($scope, $state) {
+    $scope.navTitle = 'Root Page';
   }])
 
   .controller('MenuHomeController', [ '$scope', '$state', function($scope, $state) {
@@ -124,9 +123,5 @@ angular.module('ionicApp', ['ionic'])
   }])
 
   .controller('TabsPageController', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Tab Page';
-  }])
-
-  .controller('TabsFirstPageController', [ '$scope', '$state', function($scope, $state) {
     $scope.navTitle = 'Tab Page';
   }]);
