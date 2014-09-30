@@ -1,4 +1,4 @@
-<ion-view title="{{navTitle}}"  left-buttons="leftButtons">
+<ion-view title="{{navTitle}}">
 
   <ion-nav-bar type="bar-positive">
     <ion-nav-back-button class="button-clear">
@@ -6,21 +6,24 @@
     </ion-nav-back-button>
   </ion-nav-bar>
 
-  <ion-tabs tabs-type="tabs-icon-only">
-      <ion-tab title="Tab 1" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" href="#/tab/first">
-        <ion-nav-view name="tab-first"></ion-nav-view>
-      </ion-tab>
+  <ion-tabs class="tabs-icon-top">
 
-      <ion-tab title="Tab 2" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-          <ion-content has-header="true" padding="true">
-              <h2>Tab 2 Content</h2>
-          </ion-content>
-      </ion-tab>
+    <ion-tab title="tab-first" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" href="#/tab/first">
+      <ion-nav-view name="tab-first"></ion-nav-view>
+    </ion-tab>
 
-      <ion-tab title="Tab 3" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-          <ion-content has-header="true" padding="true">
-              <h2>Tab 3 Content</h2>
-          </ion-content>
-      </ion-tab>
+    <ion-tab title="tab-second" icon-on="ion-ios7-star" icon-off="ion-ios7-star-outline" href="#/tab/second">
+      <ion-nav-view name="tab-second"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="ion-view" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
+      <ion-view title="Tab View 3 Title">
+        <ion-content padding="true">
+          <h2>Tab 3 Content</h2>
+        </ion-content>
+      </ion-view>
+    </ion-tab>
+
   </ion-tabs>
+
 </ion-view>

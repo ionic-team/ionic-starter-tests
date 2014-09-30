@@ -61,6 +61,30 @@ angular.module('ionicApp', ['ionic'])
           }
         }
       })
+      .state('tab.second', {
+        url: '/second',
+        views: {
+          'tab-second': {
+            templateUrl: 'tab-second.html'
+          }
+        }
+      })
+      .state('tab.second-child', {
+        url: '/second/child',
+        views: {
+          'tab-second': {
+            templateUrl: 'tab-second-child.html'
+          }
+        }
+      })
+      .state('tab.second-grandchild', {
+        url: '/second/grandchild',
+        views: {
+          'tab-second': {
+            templateUrl: 'tab-second-grandchild.html'
+          }
+        }
+      })
 
     $urlRouterProvider.otherwise('/entry');
   }])
