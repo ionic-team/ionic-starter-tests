@@ -65,10 +65,19 @@ angular.module('ionicApp', ['ionic'])
     $urlRouterProvider.otherwise('/entry');
   }])
 
-  .controller('MainController', [ '$scope', function($scope) {
+  .controller('MainController', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
     $scope.toggleMenu = function() {
       $scope.sideMenuController.toggleLeft();
-    }
+    };
+    $scope.rightHeaderButtonClick = function() {
+
+      $ionicActionSheet.show({
+         destructiveText: 'Delete',
+         titleText: 'Modify your album',
+         cancelText: 'Cancel'
+     });
+
+    };
   }])
 
   .controller('EntryPageController', [ '$scope', '$state', function($scope, $state) {
