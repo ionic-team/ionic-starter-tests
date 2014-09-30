@@ -84,7 +84,7 @@ angular.module('ionicApp', ['ionic'])
             templateUrl: 'tab-second-grandchild.html'
           }
         }
-      })
+      });
 
     $urlRouterProvider.otherwise('/entry');
   }])
@@ -106,48 +106,21 @@ angular.module('ionicApp', ['ionic'])
 
     $scope.signIn = function() {
       $state.go('main.home');
-    }
+    };
   }])
 
   .controller('HomePageController', [ '$scope', '$state', function($scope, $state) {
     $scope.navTitle = 'Home Page';
-
-    $scope.leftButtons = [{
-      type: 'button-icon icon ion-navicon',
-      tap: function(e) {
-        $scope.toggleMenu();
-      }
-    }];
   }])
 
   .controller('InfoPageController', [ '$scope', '$state', function($scope, $state) {
     $scope.navTitle = 'Info Page';
-
-    $scope.leftButtons = [{
-      type: 'button-icon icon ion-navicon',
-      tap: function(e) {
-        $scope.toggleMenu();
-      }
-    }];
   }])
 
   .controller('TabsPageController', [ '$scope', '$state', function($scope, $state) {
     $scope.navTitle = 'Tab Page';
-
-    $scope.leftButtons = [{
-      type: 'button-icon icon ion-navicon',
-      tap: function(e) {
-        $scope.toggleMenu();
-      }
-    }];
   }])
+
   .controller('TabsFirstPageController', [ '$scope', '$state', function($scope, $state) {
     $scope.navTitle = 'Tab Page';
-
-    $scope.leftButtons = [{
-      type: 'button-icon icon ion-navicon',
-      tap: function(e) {
-        $scope.toggleMenu();
-      }
-    }];
-  }])
+  }]);
