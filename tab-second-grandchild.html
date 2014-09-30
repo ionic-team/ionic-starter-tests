@@ -2,5 +2,11 @@
   <ion-content padding="true">
     <h2>Tab 2 Grandchild</h2>
     <a class="button button-dark" ui-sref="tab.second-child">Go to Second Child</a>
+    <ion-list style="padding-top:20px">
+      <ion-item ng-repeat="post in posts">
+        {{post.title}}
+        <br><small><a ng-href="{{post.url}}" target="_blank">{{post.url}}</a></small>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
