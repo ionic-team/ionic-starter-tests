@@ -3,35 +3,43 @@ angular.module('ionicApp', ['ionic'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
+
+      // Root
       .state('entry', {
         url : '/entry',
         templateUrl : 'entry.html',
         controller : 'EntryPageController'
       })
-      .state('main', {
-        url : '/main',
-        templateUrl : 'mainContainer.html',
+
+
+      // Menus
+      .state('menu', {
+        url : '/menu',
+        templateUrl : 'menu-container.html',
         abstract : true,
-        controller : 'MainController'
+        controller : 'MenuController'
       })
-      .state('main.home', {
+      .state('menu.home', {
         url: '/home',
         views: {
-          'main': {
-            templateUrl: 'home.html',
-            controller : 'HomePageController'
+          'menu-view': {
+            templateUrl: 'menu-home.html',
+            controller : 'MenuHomeController'
           }
         }
       })
-      .state('main.info', {
+      .state('menu.info', {
         url: '/info',
         views: {
-          'main': {
-            templateUrl: 'info.html',
-            controller : 'InfoPageController'
+          'menu-view': {
+            templateUrl: 'menu-info.html',
+            controller : 'MenuInfoController'
           }
         }
       })
+
+
+      // Tabs
       .state('tab', {
         url: '/tab',
         abstract:true,
@@ -91,7 +99,7 @@ angular.module('ionicApp', ['ionic'])
     $urlRouterProvider.otherwise('/entry');
   }])
 
-  .controller('MainController', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
+  .controller('MenuController', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
 
     $scope.rightHeaderButtonClick = function() {
       $ionicActionSheet.show({
@@ -107,12 +115,12 @@ angular.module('ionicApp', ['ionic'])
     $scope.navTitle = 'Entry Page';
   }])
 
-  .controller('HomePageController', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Home Page';
+  .controller('MenuHomeController', [ '$scope', '$state', function($scope, $state) {
+    $scope.navTitle = 'Menu Home Page';
   }])
 
-  .controller('InfoPageController', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Info Page';
+  .controller('MenuInfoController', [ '$scope', '$state', function($scope, $state) {
+    $scope.navTitle = 'Menu Info Page';
   }])
 
   .controller('TabsPageController', [ '$scope', '$state', function($scope, $state) {
