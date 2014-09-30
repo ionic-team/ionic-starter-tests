@@ -43,7 +43,7 @@ angular.module('ionicApp', ['ionic'])
       .state('tab', {
         url: '/tab',
         abstract:true,
-        templateUrl: 'tab.html',
+        templateUrl: 'tabs-container.html',
         controller: 'TabsPageController'
       })
       .state('tab.first', {
