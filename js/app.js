@@ -35,13 +35,15 @@ angular.module('ionicApp', ['ionic'])
       .state('tab', {
         url: '/tab',
         abstract:true,
-        templateUrl: 'tab.html'
+        templateUrl: 'tab.html',
+        controller: 'TabsPageController'
       })
       .state('tab.first', {
         url: '/first',
         views: {
           'tab-first': {
-            templateUrl: 'tab-first.html'
+            templateUrl: 'tab-first.html',
+            controller: 'TabsFirstPageController'
           }
         }
       })
@@ -103,10 +105,6 @@ angular.module('ionicApp', ['ionic'])
 
   .controller('EntryPageController', [ '$scope', '$state', function($scope, $state) {
     $scope.navTitle = 'Entry Page';
-
-    $scope.signIn = function() {
-      $state.go('main.home');
-    };
   }])
 
   .controller('HomePageController', [ '$scope', '$state', function($scope, $state) {
