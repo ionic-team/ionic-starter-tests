@@ -5,10 +5,22 @@ angular.module('ionicApp', ['ionic'])
     $stateProvider
 
       // Root
-      .state('root', {
-        url : '/root',
-        templateUrl : 'root.html',
-        controller : 'RootController'
+      .state('root1', {
+        url : '/root1',
+        templateUrl : 'root1.html',
+        controller : 'Root1Controller'
+      })
+      .state('root2', {
+        url : '/root2',
+        templateUrl : 'root2.html'
+      })
+      .state('root3', {
+        url : '/root3',
+        templateUrl : 'root3.html'
+      })
+      .state('root4', {
+        url : '/root4',
+        templateUrl : 'root4.html'
       })
 
 
@@ -119,7 +131,7 @@ angular.module('ionicApp', ['ionic'])
         }
       });
 
-    $urlRouterProvider.otherwise('/root');
+    $urlRouterProvider.otherwise('/root1');
   }])
 
   .controller('MenuController', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
@@ -134,8 +146,8 @@ angular.module('ionicApp', ['ionic'])
 
   }])
 
-  .controller('RootController', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Root Page';
+  .controller('Root1Controller', [ '$scope', '$state', function($scope, $state) {
+    $scope.navTitle = 'Root1 Page';
   }])
 
   .controller('MenuHomeController', [ '$scope', '$state', function($scope) {
