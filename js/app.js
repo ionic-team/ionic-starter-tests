@@ -8,7 +8,7 @@ angular.module('ionicApp', ['ionic'])
       .state('root1', {
         url : '/root1',
         templateUrl : 'root1.html',
-        controller : 'Root1Controller'
+        controller : 'Root1Ctrl'
       })
       .state('root2', {
         url : '/root2',
@@ -31,21 +31,21 @@ angular.module('ionicApp', ['ionic'])
         abstract : true,
         controller : 'MenuController'
       })
-      .state('menu.home', {
-        url: '/home',
+      .state('menu.page1', {
+        url: '/page1',
         views: {
           'menu-view': {
-            templateUrl: 'menu-home.html',
-            controller : 'MenuHomeController'
+            templateUrl: 'menu-page1.html',
+            controller : 'MenuPage1Ctrl'
           }
         }
       })
-      .state('menu.info', {
-        url: '/info',
+      .state('menu.page2', {
+        url: '/page2',
         views: {
           'menu-view': {
-            templateUrl: 'menu-info.html',
-            controller : 'MenuInfoController'
+            templateUrl: 'menu-page2.html',
+            controller : 'MenuPage2Ctrl'
           }
         }
       })
@@ -56,7 +56,7 @@ angular.module('ionicApp', ['ionic'])
         url: '/tab',
         abstract:true,
         templateUrl: 'tabs-container.html',
-        controller: 'TabsPageController'
+        controller: 'TabsPageCtrl'
       })
       .state('tab.tab1page1', {
         url: '/tab1page1',
@@ -121,7 +121,7 @@ angular.module('ionicApp', ['ionic'])
         views: {
           'tab2': {
             templateUrl: 'tab2page3.html',
-            controller: 'TabsSecondGrandchildPageController',
+            controller: 'Tab2Page3Ctrl',
             resolve: {
               posts: function (ajaxService) {
                 return ajaxService.getFrontPage();
@@ -146,27 +146,23 @@ angular.module('ionicApp', ['ionic'])
 
   }])
 
-  .controller('Root1Controller', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Root1 Page';
+  .controller('Root1Ctrl', [ '$scope', '$state', function($scope, $state) {
+    $scope.navTitle = 'Root 1';
   }])
 
-  .controller('MenuHomeController', [ '$scope', '$state', function($scope) {
-    $scope.navTitle = 'Menu Home Page';
+  .controller('MenuPage1Ctrl', [ '$scope', '$state', function($scope) {
+    $scope.navTitle = 'Menu: Page 1';
   }])
 
-  .controller('MenuInfoController', [ '$scope', '$state', function($scope) {
-    $scope.navTitle = 'Menu Info Page';
+  .controller('MenuPage2Ctrl', [ '$scope', '$state', function($scope) {
+    $scope.navTitle = 'Menu: Page 2';
   }])
 
-  .controller('TabsPageController', [ '$scope', '$state', function($scope) {
-    $scope.navTitle = 'Tab Page';
+  .controller('TabsPageCtrl', [ '$scope', '$state', function($scope) {
+
   }])
 
-  .controller('TabsFirstPageController', [ '$scope', '$state', function($scope, $state) {
-    $scope.navTitle = 'Tab Page';
-  }])
-
-  .controller('TabsSecondGrandchildPageController', [ '$scope', 'posts', function($scope, posts) {
+  .controller('Tab2Page3Ctrl', [ '$scope', 'posts', function($scope, posts) {
     console.log(posts)
     $scope.posts = posts.data;
   }])
@@ -178,6 +174,7 @@ angular.module('ionicApp', ['ionic'])
       }
     };
   })
+
   .factory("ajaxService", function($q, $http){
     return {
       getFrontPage: function(){

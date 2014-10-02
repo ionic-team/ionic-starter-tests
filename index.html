@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-    <title>Ionic Template</title>
+    <title>Ionic Nav</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -14,6 +14,17 @@
     <!--<script src="cordova.js"></script>-->
   </head>
 <body>
+
+  <ion-nav-bar class="bar-energized">
+    <ion-nav-buttons side="left">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-information-circled" ng-click="rightHeaderButtonClick()"></button>
+    </ion-nav-buttons>
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
 
   <ion-nav-view></ion-nav-view>
 

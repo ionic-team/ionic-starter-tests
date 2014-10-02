@@ -1,16 +1,15 @@
 <ion-side-menus>
 
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-energized">
-      <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-      </ion-nav-buttons>
-      <ion-nav-buttons side="right">
-        <button class="button button-icon icon ion-information-circled" ng-click="rightHeaderButtonClick()"></button>
-      </ion-nav-buttons>
-      <ion-nav-back-button class="button-clear">
-        <i class="ion-arrow-left-c"></i> Back
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+        Back
       </ion-nav-back-button>
+      <div class="buttons right-buttons">
+        <button class="button">
+          Right Button
+        </button>
+      </div>
     </ion-nav-bar>
     <ion-nav-view name="menu-view"></ion-nav-view>
   </ion-side-menu-content>
@@ -21,8 +20,8 @@
     </ion-header-bar>
     <ion-content class="side-menu-left">
       <ul class="list">
-        <a ui-sref="menu.home" class="item" menu-close>Side Menu: Home</a>
-        <a ui-sref="menu.info" class="item" menu-close>Side Menu: Info</a>
+        <a ui-sref="menu.page1" class="item" menu-close>Side Menu: Home</a>
+        <a ui-sref="menu.page2" class="item" menu-close>Side Menu: Info</a>
         <a ui-sref="tab.tab1page1" class="item" menu-close>Tab 1: Page 1</a>
         <a ui-sref="tab.tab2page1" class="item" menu-close>Tab 2: Page 1</a>
         <a ui-sref="root1" class="item" menu-close>Root 1</a>
