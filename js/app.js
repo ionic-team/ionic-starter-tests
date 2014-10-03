@@ -29,7 +29,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/menu',
         templateUrl : 'menu-container.html',
         abstract : true,
-        controller : 'MenuController'
+        controller : 'MenuCtrl'
       })
       .state('menu.page1', {
         url: '/page1',
@@ -134,8 +134,12 @@ angular.module('ionicApp', ['ionic'])
     $urlRouterProvider.otherwise('/root1');
   }])
 
-  .controller('MenuController', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
+  .controller('MenuCtrl', [ '$scope', function($scope, $ionicActionSheet) {
 
+
+  }])
+
+  .controller('MainCtrl', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
     $scope.rightHeaderButtonClick = function() {
       $ionicActionSheet.show({
          destructiveText: 'Delete',
@@ -143,7 +147,6 @@ angular.module('ionicApp', ['ionic'])
          cancelText: 'Cancel'
      });
     };
-
   }])
 
   .controller('Root1Ctrl', [ '$scope', '$state', function($scope, $state) {
