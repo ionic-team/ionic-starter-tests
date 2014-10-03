@@ -134,12 +134,27 @@ angular.module('ionicApp', ['ionic'])
     $urlRouterProvider.otherwise('/root1');
   }])
 
-  .controller('MenuCtrl', [ '$scope', function($scope, $ionicActionSheet) {
+  .controller('MenuCtrl', function($scope, $ionicActionSheet) {
 
 
-  }])
+  })
 
-  .controller('MainCtrl', [ '$scope', '$ionicActionSheet', function($scope, $ionicActionSheet) {
+  .controller('MainCtrl', function($scope, $ionicPopup, $ionicActionSheet) {
+    $scope.leftHeaderButtonClick = function() {
+      $ionicPopup.show({
+        template: '<input type="password" ng-model="data.wifi">',
+        title: 'Enter Wi-Fi Password',
+        subTitle: 'Please use normal things',
+        scope: $scope,
+        buttons: [
+          { text: 'Cancel' },
+          {
+            text: '<b>Save</b>',
+            type: 'button-positive'
+          },
+        ]
+      });
+    };
     $scope.rightHeaderButtonClick = function() {
       $ionicActionSheet.show({
          destructiveText: 'Delete',
@@ -147,28 +162,28 @@ angular.module('ionicApp', ['ionic'])
          cancelText: 'Cancel'
      });
     };
-  }])
+  })
 
-  .controller('Root1Ctrl', [ '$scope', '$state', function($scope, $state) {
+  .controller('Root1Ctrl', function($scope, $state) {
     $scope.navTitle = 'Root 1';
-  }])
+  })
 
-  .controller('MenuPage1Ctrl', [ '$scope', '$state', function($scope) {
+  .controller('MenuPage1Ctrl', function($scope) {
     $scope.navTitle = 'Menu: Page 1';
-  }])
+  })
 
-  .controller('MenuPage2Ctrl', [ '$scope', '$state', function($scope) {
+  .controller('MenuPage2Ctrl', function($scope) {
     $scope.navTitle = 'Menu: Page 2';
-  }])
+  })
 
-  .controller('TabsPageCtrl', [ '$scope', '$state', function($scope) {
+  .controller('TabsPageCtrl', function($scope) {
 
-  }])
+  })
 
-  .controller('Tab2Page3Ctrl', [ '$scope', 'posts', function($scope, posts) {
+  .controller('Tab2Page3Ctrl', function($scope, posts) {
     console.log(posts)
     $scope.posts = posts.data;
-  }])
+  })
 
   .factory("messageService", function($q){
     return {
