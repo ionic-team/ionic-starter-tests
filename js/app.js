@@ -129,6 +129,30 @@ angular.module('ionicApp', ['ionic'])
             }
           }
         }
+      })
+      .state('tab.tab3page1', {
+        url: '/tab3page1',
+        views: {
+          'tab3': {
+            templateUrl: 'tab3page1.html'
+          }
+        }
+      })
+      .state('tab.tab3page2', {
+        url: '/tab3page2',
+        views: {
+          'tab3': {
+            templateUrl: 'tab3page2.html'
+          }
+        }
+      })
+      .state('tab.tab3page3', {
+        url: '/tab3page3',
+        views: {
+          'tab3': {
+            templateUrl: 'tab3page3.html'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/root1');
