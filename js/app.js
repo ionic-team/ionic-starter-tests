@@ -7,20 +7,36 @@ angular.module('ionicApp', ['ionic'])
       // Root
       .state('root1', {
         url : '/root1',
-        templateUrl : 'root1.html',
-        controller : 'Root1Ctrl'
+        views: {
+          'root': {
+            templateUrl : 'root1.html',
+            controller : 'Root1Ctrl'
+          }
+        }
       })
       .state('root2', {
         url : '/root2',
-        templateUrl : 'root2.html'
+        views: {
+          'root': {
+            templateUrl : 'root2.html'
+          }
+        }
       })
       .state('root3', {
         url : '/root3',
-        templateUrl : 'root3.html'
+        views: {
+          'root': {
+            templateUrl : 'root3.html'
+          }
+        }
       })
       .state('root4', {
         url : '/root4',
-        templateUrl : 'root4.html'
+        views: {
+          'root': {
+            templateUrl : 'root4.html'
+          }
+        }
       })
 
 
@@ -52,11 +68,99 @@ angular.module('ionicApp', ['ionic'])
 
 
       // Tabs
+      .state('roottab', {
+        url: '/roottab',
+        abstract:true,
+        views: {
+          'root': {
+            templateUrl : 'roottabs-container.html'
+          }
+        }
+      })
+      .state('roottab.tab1page1', {
+        url: '/tab1page1',
+        views: {
+          'tab1': {
+            templateUrl: 'roottab1page1.html'
+          }
+        }
+      })
+      .state('roottab.tab1page2', {
+        url: '/roottab1page2',
+        views: {
+          'tab1': {
+            templateUrl: 'roottab1page2.html'
+          }
+        }
+      })
+      .state('roottab.tab1page3', {
+        url: '/roottab1page3',
+        views: {
+          'tab1': {
+            templateUrl: 'roottab1page3.html'
+          }
+        }
+      })
+      .state('roottab.tab2page1', {
+        url: '/roottab2page1',
+        views: {
+          'tab2': {
+            templateUrl: 'roottab2page1.html'
+          }
+        }
+      })
+      .state('roottab.tab2page2', {
+        url: '/roottab2page2',
+        views: {
+          'tab2': {
+            templateUrl: 'roottab2page2.html'
+          }
+        }
+      })
+      .state('roottab.tab2page3', {
+        url: '/roottab2page3',
+        views: {
+          'tab2': {
+            templateUrl: 'roottab2page3.html'
+          }
+        }
+      })
+      .state('roottab.tab3page1', {
+        url: '/roottab3page1',
+        views: {
+          'tab3': {
+            templateUrl: 'roottab3page1.html'
+          }
+        }
+      })
+      .state('roottab.tab3page2', {
+        url: '/roottab3page2',
+        views: {
+          'tab3': {
+            templateUrl: 'roottab3page2.html'
+          }
+        }
+      })
+      .state('roottab.tab3page3', {
+        url: '/troottab3page3',
+        views: {
+          'tab3': {
+            templateUrl: 'roottab3page3.html'
+          }
+        }
+      })
+
+
+      // Tabs nested in ion-view
       .state('tab', {
         url: '/tab',
         abstract:true,
-        templateUrl: 'tabs-container.html',
-        controller: 'TabsPageCtrl'
+        views: {
+          'root': {
+            templateUrl : 'tabs-container.html',
+            controller: 'TabsPageCtrl'
+          }
+        }
       })
       .state('tab.tab1page1', {
         url: '/tab1page1',
