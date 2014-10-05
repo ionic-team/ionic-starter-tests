@@ -82,7 +82,7 @@ angular.module('ionicApp', ['ionic'])
         }
       })
       .state('roottab.tab1page1', {
-        url: '/tab1page1',
+        url: '/roottab1page1',
         views: {
           'tab1': {
             templateUrl: 'roottab1page1.html'
