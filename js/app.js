@@ -71,6 +71,14 @@ angular.module('ionicApp', ['ionic'])
           }
         }
       })
+      .state('menu.page3', {
+        url: '/page3',
+        views: {
+          'menu-view': {
+            templateUrl: 'menu-page3.html'
+          }
+        }
+      })
 
 
       // Tabs
