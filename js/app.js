@@ -1,6 +1,8 @@
 angular.module('ionicApp', ['ionic'])
 
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+    //$ionicConfigProvider.viewAnimation('android-transition');
 
     $stateProvider
 
