@@ -2,7 +2,7 @@ angular.module('ionicApp', ['ionic'])
 
   .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    //$ionicConfigProvider.viewAnimation('android-transition');
+    //$ionicConfigProvider.viewAnimation('zoom-switch');
 
     $stateProvider
 
@@ -94,7 +94,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab1page1', {
         url: '/roottab1page1',
         views: {
-          'tab1': {
+          'roottab1': {
             templateUrl: 'roottab1page1.html'
           }
         }
@@ -102,7 +102,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab1page2', {
         url: '/roottab1page2',
         views: {
-          'tab1': {
+          'roottab1': {
             templateUrl: 'roottab1page2.html'
           }
         }
@@ -110,7 +110,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab1page3', {
         url: '/roottab1page3',
         views: {
-          'tab1': {
+          'roottab1': {
             templateUrl: 'roottab1page3.html'
           }
         }
@@ -118,7 +118,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab2page1', {
         url: '/roottab2page1',
         views: {
-          'tab2': {
+          'roottab2': {
             templateUrl: 'roottab2page1.html'
           }
         }
@@ -126,7 +126,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab2page2', {
         url: '/roottab2page2',
         views: {
-          'tab2': {
+          'roottab2': {
             templateUrl: 'roottab2page2.html'
           }
         }
@@ -134,7 +134,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab2page3', {
         url: '/roottab2page3',
         views: {
-          'tab2': {
+          'roottab2': {
             templateUrl: 'roottab2page3.html'
           }
         }
@@ -142,7 +142,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab3page1', {
         url: '/roottab3page1',
         views: {
-          'tab3': {
+          'roottab3': {
             templateUrl: 'roottab3page1.html'
           }
         }
@@ -150,7 +150,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab3page2', {
         url: '/roottab3page2',
         views: {
-          'tab3': {
+          'roottab3': {
             templateUrl: 'roottab3page2.html'
           }
         }
@@ -158,7 +158,7 @@ angular.module('ionicApp', ['ionic'])
       .state('roottab.tab3page3', {
         url: '/troottab3page3',
         views: {
-          'tab3': {
+          'roottab3': {
             templateUrl: 'roottab3page3.html'
           }
         }
