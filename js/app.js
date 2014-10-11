@@ -2,7 +2,7 @@ angular.module('ionicApp', ['ionic'])
 
   .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    //$ionicConfigProvider.viewAnimation('zoom-switch');
+    $ionicConfigProvider.viewTransition('android-transition');
 
     $stateProvider
 
