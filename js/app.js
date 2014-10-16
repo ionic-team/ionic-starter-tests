@@ -2,7 +2,23 @@ angular.module('ionicApp', ['ionic'])
 
   .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    $ionicConfigProvider.viewTransition('android-transition');
+    //$ionicConfigProvider.views.transition('android-transition');
+    $ionicConfigProvider.platform.ios.menus.transition('ios-whatnot');
+
+    $ionicConfigProvider.setPlatformConfig('win32', {
+      views: {
+        transition: 'win32-transition'
+      },
+      navBar: {
+        alignTitle: 'right',
+        alignButtons: 'left',
+        backButtonIcon: 'ion-win32-arrow-back',
+        transition: 'win32-nav-bar'
+      },
+      menus: {
+        transition: 'win32-menu'
+      }
+    });
 
     $stateProvider
 
@@ -20,7 +36,8 @@ angular.module('ionicApp', ['ionic'])
         url : '/root2',
         views: {
           'root': {
-            templateUrl : 'root2.html'
+            templateUrl : 'root2.html',
+            controller : 'Root2Ctrl'
           }
         }
       })
@@ -28,7 +45,8 @@ angular.module('ionicApp', ['ionic'])
         url : '/root3',
         views: {
           'root': {
-            templateUrl : 'root3.html'
+            templateUrl : 'root3.html',
+            controller : 'Root3Ctrl'
           }
         }
       })
@@ -36,7 +54,17 @@ angular.module('ionicApp', ['ionic'])
         url : '/root4',
         views: {
           'root': {
-            templateUrl : 'root4.html'
+            templateUrl : 'root4.html',
+            controller : 'Root4Ctrl'
+          }
+        }
+      })
+      .state('root5', {
+        url : '/root5',
+        views: {
+          'root': {
+            templateUrl : 'root5.html',
+            controller : 'Root5Ctrl'
           }
         }
       })
@@ -282,7 +310,7 @@ angular.module('ionicApp', ['ionic'])
   })
 
   .controller('MainCtrl', function($scope, $ionicPopup, $ionicActionSheet) {
-    $scope.leftHeaderButtonClick = function() {
+    $scope.defaultPrimaryButtonClick = function() {
       $ionicPopup.show({
         template: '<input type="password" ng-model="data.wifi">',
         title: 'Enter Wi-Fi Password',
@@ -297,17 +325,59 @@ angular.module('ionicApp', ['ionic'])
         ]
       });
     };
-    $scope.rightHeaderButtonClick = function() {
+    $scope.defaultSecondaryButtonClick = function() {
       $ionicActionSheet.show({
-         destructiveText: 'Delete',
-         titleText: 'Modify your album',
-         cancelText: 'Cancel'
+         titleText: 'Nav Bar Default Secondary',
+         cancelText: 'Cancel Nav Bar Default Secondary'
      });
     };
   })
 
   .controller('Root1Ctrl', function($scope, $state) {
     $scope.navTitle = 'Root 1';
+  })
+
+  .controller('Root2Ctrl', function($scope, $state, $ionicActionSheet) {
+    $scope.navTitle = 'Root 2';
+    $scope.root2BtnText = 'R2 Primary'
+    $scope.root2PrimaryButton = function() {
+      $ionicActionSheet.show({
+         titleText: 'Root 2 Primary',
+         cancelText: 'Cancel Root 2 Primary'
+     });
+    };
+  })
+
+  .controller('Root3Ctrl', function($scope, $state, $ionicActionSheet) {
+    $scope.root3BtnText = 'R3 Secondary'
+    $scope.root3SecondaryButton = function() {
+      $ionicActionSheet.show({
+         titleText: 'Root 3 Secondary',
+         cancelText: 'Cancel Root 3 Secondary'
+     });
+    };
+  })
+
+  .controller('Root4Ctrl', function($scope, $state, $ionicActionSheet) {
+    $scope.root4PrimaryBtnText = 'R4 Primary'
+    $scope.root4PrimaryButton = function() {
+      $ionicActionSheet.show({
+         titleText: 'Root 4 Primary',
+         cancelText: 'Cancel Root 4 Primary'
+     });
+    };
+
+    $scope.root4SecondaryBtnText = 'R4 Secondary'
+    $scope.root4SecondaryButton = function() {
+      $ionicActionSheet.show({
+         titleText: 'Root 4 Secondary',
+         cancelText: 'Cancel Root 4 Secondary'
+     });
+    };
+  })
+
+  .controller('Root5Ctrl', function($scope, $state, $ionicActionSheet) {
+
   })
 
   .controller('MenuPage1Ctrl', function($scope) {
