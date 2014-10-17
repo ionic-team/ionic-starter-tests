@@ -2,8 +2,8 @@ angular.module('ionicApp', ['ionic'])
 
   .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    //$ionicConfigProvider.views.transition('android-transition');
-    $ionicConfigProvider.platform.ios.menus.transition('ios-whatnot');
+    // $ionicConfigProvider.views.transition('android-transition');
+    // $ionicConfigProvider.navBar.alignTitle('left');
 
     $ionicConfigProvider.setPlatformConfig('win32', {
       views: {
