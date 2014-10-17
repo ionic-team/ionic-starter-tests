@@ -17,15 +17,14 @@
 <body ng-controller="MainCtrl">
 
   <ion-nav-bar class="bar-energized">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
     <ion-nav-buttons side="left">
       <button class="button button-icon icon ion-wifi" ng-click="defaultPrimaryButtonClick()"></button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
       <button class="button button-icon icon ion-information-circled" ng-click="defaultSecondaryButtonClick()"></button>
     </ion-nav-buttons>
-    <ion-nav-back-button class="button-clear">
-      <i class="ion-arrow-left-c"></i> Back
-    </ion-nav-back-button>
   </ion-nav-bar>
 
   <ion-nav-view name="root"></ion-nav-view>

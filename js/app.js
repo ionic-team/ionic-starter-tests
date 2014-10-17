@@ -4,6 +4,10 @@ angular.module('ionicApp', ['ionic'])
 
     // $ionicConfigProvider.views.transition('android-transition');
     // $ionicConfigProvider.navBar.alignTitle('left');
+    //ionic.Platform.setPlatform('ios');
+     //$ionicConfigProvider.navBar.alignTitle('left');
+    // $ionicConfigProvider.navBar.positionPrimaryButtons('right');
+    // $ionicConfigProvider.navBar.positionSecondaryButtons('right');
 
     $ionicConfigProvider.setPlatformConfig('win32', {
       views: {
