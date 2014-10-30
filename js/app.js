@@ -4,7 +4,7 @@ angular.module('ionicApp', ['ionic'])
 
     // $ionicConfigProvider.views.transition('android-transition');
     // $ionicConfigProvider.navBar.alignTitle('left');
-    //ionic.Platform.setPlatform('ios');
+    //ionic.Platform.setPlatform('android');
      //$ionicConfigProvider.navBar.alignTitle('left');
     // $ionicConfigProvider.navBar.positionPrimaryButtons('right');
     // $ionicConfigProvider.navBar.positionSecondaryButtons('right');
@@ -337,8 +337,15 @@ angular.module('ionicApp', ['ionic'])
     };
   })
 
-  .controller('Root1Ctrl', function($scope, $state) {
+  .controller('Root1Ctrl', function($scope, $ionicModal) {
     $scope.navTitle = 'Root 1';
+
+    $ionicModal.fromTemplateUrl('modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
   })
 
   .controller('Root2Ctrl', function($scope, $state, $ionicActionSheet) {
