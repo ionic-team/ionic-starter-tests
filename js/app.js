@@ -31,7 +31,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root1',
         views: {
           'root': {
-            templateUrl : 'root1.html',
+            templateUrl : 'root1.html?v1',
             controller : 'Root1Ctrl'
           }
         }
@@ -40,7 +40,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root2',
         views: {
           'root': {
-            templateUrl : 'root2.html',
+            templateUrl : 'root2.html?v1',
             controller : 'Root2Ctrl'
           }
         }
@@ -49,7 +49,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root3',
         views: {
           'root': {
-            templateUrl : 'root3.html',
+            templateUrl : 'root3.html?v1',
             controller : 'Root3Ctrl'
           }
         }
@@ -58,7 +58,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root4',
         views: {
           'root': {
-            templateUrl : 'root4.html',
+            templateUrl : 'root4.html?v1',
             controller : 'Root4Ctrl'
           }
         }
@@ -67,8 +67,17 @@ angular.module('ionicApp', ['ionic'])
         url : '/root5',
         views: {
           'root': {
-            templateUrl : 'root5.html',
+            templateUrl : 'root5.html?v1',
             controller : 'Root5Ctrl'
+          }
+        }
+      })
+      .state('root6', {
+        url : '/root6',
+        views: {
+          'root': {
+            templateUrl : 'root6.html?v1',
+            controller : 'Root6Ctrl'
           }
         }
       })
@@ -388,6 +397,10 @@ angular.module('ionicApp', ['ionic'])
   })
 
   .controller('Root5Ctrl', function($scope, $state, $ionicActionSheet) {
+
+  })
+
+  .controller('Root6Ctrl', function($scope, $state, $ionicActionSheet) {
 
   })
 
