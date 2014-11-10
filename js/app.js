@@ -31,7 +31,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root1',
         views: {
           'root': {
-            templateUrl : templates/'root1.html' + rnd(),
+            templateUrl : 'templates/root1.html' + rnd(),
             controller : 'Root1Ctrl'
           }
         }
@@ -40,7 +40,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root2',
         views: {
           'root': {
-            templateUrl : templates/'root2.html' + rnd(),
+            templateUrl : 'templates/root2.html' + rnd(),
             controller : 'Root2Ctrl'
           }
         }
@@ -49,7 +49,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root3',
         views: {
           'root': {
-            templateUrl : templates/'root3.html' + rnd(),
+            templateUrl : 'templates/root3.html' + rnd(),
             controller : 'Root3Ctrl'
           }
         }
@@ -58,7 +58,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root4',
         views: {
           'root': {
-            templateUrl : templates/'root4.html' + rnd(),
+            templateUrl : 'templates/root4.html' + rnd(),
             controller : 'Root4Ctrl'
           }
         }
@@ -67,7 +67,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root5',
         views: {
           'root': {
-            templateUrl : templates/'root5.html' + rnd(),
+            templateUrl : 'templates/root5.html' + rnd(),
             controller : 'Root5Ctrl'
           }
         }
@@ -76,7 +76,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/root6',
         views: {
           'root': {
-            templateUrl : templates/'root6.html' + rnd(),
+            templateUrl : 'templates/root6.html' + rnd(),
             controller : 'Root6Ctrl'
           }
         }
@@ -88,7 +88,7 @@ angular.module('ionicApp', ['ionic'])
         url : '/menu',
         views: {
           'root': {
-            templateUrl : templates/'menu-container.html' + rnd(),
+            templateUrl : 'templates/menu-container.html' + rnd(),
           }
         },
         abstract : true,
@@ -128,7 +128,7 @@ angular.module('ionicApp', ['ionic'])
         abstract:true,
         views: {
           'root': {
-            templateUrl : templates/'roottabs-container.html' + rnd()
+            templateUrl : 'templates/roottabs-container.html' + rnd()
           }
         }
       })
@@ -212,7 +212,7 @@ angular.module('ionicApp', ['ionic'])
         abstract:true,
         views: {
           'root': {
-            templateUrl : templates/'tabs-container.html' + rnd(),
+            templateUrl : 'templates/tabs-container.html' + rnd(),
             controller: 'TabsPageCtrl'
           }
         }
