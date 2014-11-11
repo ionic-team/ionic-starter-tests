@@ -349,7 +349,7 @@ angular.module('ionicApp', ['ionic'])
   .controller('Root1Ctrl', function($scope, $ionicModal) {
     $scope.navTitle = 'Root 1';
 
-    $ionicModal.fromTemplateUrl('modal.html' + rnd(), {
+    $ionicModal.fromTemplateUrl('templates/modal.html' + rnd(), {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
