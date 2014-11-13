@@ -386,9 +386,19 @@ angular.module('ionicApp', ['ionic'])
     };
 
     $scope.myTitle = "Root 3";
+    $scope.hideBackButton = false;
+    $scope.hideNavBar = false;
 
     $scope.changeTitle = function() {
       $scope.myTitle = Math.floor(Math.random() * 1000000);
+    };
+
+    $scope.toggleBackButton = function() {
+      $scope.hideBackButton = !$scope.hideBackButton;
+    };
+
+    $scope.toggleNavBar = function() {
+      $scope.hideNavBar = !$scope.hideNavBar;
     };
   })
 

@@ -1,4 +1,4 @@
-<ion-view view-title="{{myTitle}}">
+<ion-view view-title="{{myTitle}}" hide-back-button="{{hideBackButton}}" hide-nav-bar="{{hideNavBar}}">
 
   <ion-nav-buttons side="secondary">
     <button class="button" ng-click="root3SecondaryButton()">
@@ -21,6 +21,12 @@
     <p>
       <button class="button" ng-click="changeTitle()">
         Change Title
+      </button>
+      <button class="button" ng-click="toggleBackButton()">
+        Toggle Back Button
+      </button>
+      <button class="button" ng-click="toggleNavBar()">
+        Toggle Nav Bar
       </button>
     </p>
 
