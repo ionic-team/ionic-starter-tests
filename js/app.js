@@ -384,6 +384,12 @@ angular.module('ionicApp', ['ionic'])
          cancelText: 'Cancel Root 3 Secondary'
      });
     };
+
+    $scope.myTitle = "Root 3";
+
+    $scope.changeTitle = function() {
+      $scope.myTitle = Math.floor(Math.random() * 1000000);
+    };
   })
 
   .controller('Root4Ctrl', function($scope, $state, $ionicActionSheet) {

@@ -1,4 +1,4 @@
-<ion-view view-title="Root 3">
+<ion-view view-title="myTitle">
 
   <ion-nav-buttons side="secondary">
     <button class="button" ng-click="root3SecondaryButton()">
@@ -17,6 +17,11 @@
       <a class="item" ui-sref="root6">Root6 (custom nav-bar)</a>
       <a class="item" ui-sref="root7">Root7 (hide-nav-bar="true")</a>
     </ul>
+
+    <button class="button" ng-click="changeTitle()">
+      Change Title
+    </button>
+
     <p>
       <a class="button button-dark" ui-sref="menu.page1">Menu: Page 1</a>
       <a class="button button-dark" ui-sref="menu.page2">Menu: Page 2</a>
