@@ -81,6 +81,14 @@ angular.module('ionicApp', ['ionic'])
           }
         }
       })
+      .state('root7', {
+        url : '/root7',
+        views: {
+          'root': {
+            templateUrl : 'templates/root7.html' + rnd()
+          }
+        }
+      })
 
 
       // Menus
