@@ -2,26 +2,13 @@ angular.module('ionicApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-  //$ionicConfigProvider.views.transition('none');
-  //ionic.Platform.setPlatform('android');
-   //$ionicConfigProvider.navBar.alignTitle('left');
+  // ionic.Platform.setPlatform('ios');
+  // $ionicConfigProvider.views.transition('none');
+  // $ionicConfigProvider.navBar.transition('ios');
+
+  // $ionicConfigProvider.navBar.alignTitle('left');
   // $ionicConfigProvider.navBar.positionPrimaryButtons('right');
   // $ionicConfigProvider.navBar.positionSecondaryButtons('right');
-
-  $ionicConfigProvider.setPlatformConfig('win32', {
-    views: {
-      transition: 'win32-transition'
-    },
-    navBar: {
-      alignTitle: 'right',
-      alignButtons: 'left',
-      backButtonIcon: 'ion-win32-arrow-back',
-      transition: 'win32-nav-bar'
-    },
-    menus: {
-      transition: 'win32-menu'
-    }
-  });
 
   $stateProvider
 
@@ -115,8 +102,7 @@ angular.module('ionicApp', ['ionic'])
           templateUrl : 'templates/menu-container.html' + rnd(),
         }
       },
-      abstract : true,
-      controller : 'MenuCtrl'
+      abstract : true
     })
     .state('menu.page1', {
       url: '/page1',
@@ -141,6 +127,43 @@ angular.module('ionicApp', ['ionic'])
       views: {
         'menu-view': {
           templateUrl: 'templates/menu-page3.html' + rnd()
+        }
+      }
+    })
+
+
+    // Menu2
+    .state('menu2', {
+      url : '/menu2',
+      views: {
+        'root': {
+          templateUrl : 'templates/menu2-container.html' + rnd(),
+        }
+      },
+      abstract : true
+    })
+    .state('menu2.page1', {
+      url: '/page1',
+      views: {
+        'menu2-view': {
+          templateUrl: 'templates/menu2-page1.html' + rnd(),
+          controller : 'Menu2Page1Ctrl'
+        }
+      }
+    })
+    .state('menu2.page2', {
+      url: '/page2',
+      views: {
+        'menu2-view': {
+          templateUrl: 'templates/menu2-page2.html' + rnd()
+        }
+      }
+    })
+    .state('menu2.page3', {
+      url: '/page3',
+      views: {
+        'menu2-view': {
+          templateUrl: 'templates/menu2-page3.html' + rnd()
         }
       }
     })
@@ -342,11 +365,6 @@ angular.module('ionicApp', ['ionic'])
 
 })
 
-.controller('MenuCtrl', function($scope, $ionicActionSheet) {
-
-
-})
-
 .controller('MainCtrl', function($scope, $ionicPopup, $ionicActionSheet) {
   $scope.defaultPrimaryButtonClick = function() {
     $ionicPopup.show({
@@ -449,9 +467,7 @@ angular.module('ionicApp', ['ionic'])
 
 .controller('Root5Ctrl', function($scope, $state, $ionicNavBarDelegate) {
 
-  $scope.$on('$ionicView.beforeEnter', function(){
-    $ionicNavBarDelegate.title('Root 5: This is title came from $ionicNavBarDelegate.title() in $ionicView.beforeEnter')
-  });
+  $scope.myTitle = 'Root 5: This is title came from $ionicNavBarDelegate.title() in $ionicView.beforeEnter';
 
 })
 
@@ -459,12 +475,21 @@ angular.module('ionicApp', ['ionic'])
 
 })
 
-.controller('MenuPage1Ctrl', function($scope) {
+.controller('MenuPage1Ctrl', function($scope, $ionicSideMenuDelegate) {
   $scope.navTitle = 'Menu: Page 1';
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
 })
 
 .controller('MenuPage2Ctrl', function($scope) {
   $scope.navTitle = 'Menu: Page 2';
+})
+
+.controller('Menu2Page1Ctrl', function($scope, $ionicSideMenuDelegate) {
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
 })
 
 .controller('TabsPageCtrl', function($scope) {
