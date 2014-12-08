@@ -1,14 +1,29 @@
 angular.module('ionicApp', ['ionic'])
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $compileProvider) {
 
-  // ionic.Platform.setPlatform('ios');
-  // $ionicConfigProvider.views.transition('none');
-  // $ionicConfigProvider.navBar.transition('ios');
+  $compileProvider.debugInfoEnabled(false);
+  //ionic.Platform.setPlatform('android');
+  $ionicConfigProvider.views.transition('none');
 
-  // $ionicConfigProvider.navBar.alignTitle('left');
+   //$ionicConfigProvider.navBar.alignTitle('left');
   // $ionicConfigProvider.navBar.positionPrimaryButtons('right');
   // $ionicConfigProvider.navBar.positionSecondaryButtons('right');
+
+  $ionicConfigProvider.setPlatformConfig('win32', {
+    views: {
+      transition: 'win32-transition'
+    },
+    navBar: {
+      alignTitle: 'right',
+      alignButtons: 'left',
+      backButtonIcon: 'ion-win32-arrow-back',
+      transition: 'win32-nav-bar'
+    },
+    menus: {
+      transition: 'win32-menu'
+    }
+  });
 
   $stateProvider
 
@@ -72,6 +87,24 @@ angular.module('ionicApp', ['ionic'])
       views: {
         'root': {
           templateUrl : 'templates/root7.html' + rnd()
+        }
+      }
+    })
+    .state('root8', {
+      url : '/root8',
+      views: {
+        'root': {
+          templateUrl : 'templates/root8.html' + rnd(),
+          controller: 'Root8Ctrl'
+        }
+      }
+    })
+    .state('slidebox1', {
+      url : '/slidebox1',
+      views: {
+        'root': {
+          templateUrl : 'templates/slidebox1.html' + rnd(),
+          controller: 'Slidebox1Ctrl'
         }
       }
     })
@@ -244,6 +277,7 @@ angular.module('ionicApp', ['ionic'])
       }
     })
     .state('roottab.tab3page3', {
+      cache: false,
       url: '/troottab3page3',
       views: {
         'roottab3': {
@@ -268,7 +302,12 @@ angular.module('ionicApp', ['ionic'])
       url: '/tab1page1',
       views: {
         'tab1': {
-          templateUrl: 'templates/tab1page1.html' + rnd()
+          templateUrl: 'templates/tab1page1.html' + rnd(),
+          controller: function($scope, $ionicTabsDelegate){
+            $scope.selectTab = function(index) {
+              $ionicTabsDelegate.select(index);
+            }
+          }
         }
       }
     })
@@ -353,6 +392,7 @@ angular.module('ionicApp', ['ionic'])
       }
     })
     .state('tab.tab3page3', {
+      cache: false,
       url: '/tab3page3',
       views: {
         'tab3': {
@@ -389,7 +429,7 @@ angular.module('ionicApp', ['ionic'])
   };
 })
 
-.controller('Root1Ctrl', function($scope, $ionicModal, $ionicScrollDelegate) {
+.controller('Root1Ctrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, $ionicHistory) {
   $scope.navTitle = 'Root 1';
 
   $ionicModal.fromTemplateUrl('templates/modal.html' + rnd(), {
@@ -408,9 +448,25 @@ angular.module('ionicApp', ['ionic'])
     var instance = $ionicScrollDelegate.$getByHandle('root1-scroll-handle');
     instance.scrollBottom(true);
   };
+
+  $scope.scopeUpdate = 0;
+  scopeUpdater()
+
+  function scopeUpdater() {
+    $timeout(function(){
+      $scope.scopeUpdate++;
+      //console.log('$scope.scopeUpdate', $scope.scopeUpdate);
+      scopeUpdater()
+    }, 1000);
+  }
+
+  $scope.clearCache = function() {
+    $ionicHistory.clearCache();
+  };
+
 })
 
-.controller('Root2Ctrl', function($scope, $state, $ionicActionSheet) {
+.controller('Root2Ctrl', function($scope, $state, $ionicActionSheet, $ionicHistory) {
   $scope.navTitle = 'Root 2';
   $scope.root2BtnText = 'R2 Primary'
   $scope.root2PrimaryButton = function() {
@@ -419,9 +475,13 @@ angular.module('ionicApp', ['ionic'])
        cancelText: 'Cancel Root 2 Primary'
    });
   };
+
+  $scope.clearCache = function() {
+    $ionicHistory.clearCache();
+  };
 })
 
-.controller('Root3Ctrl', function($scope, $state, $ionicActionSheet) {
+.controller('Root3Ctrl', function($scope, $state, $ionicActionSheet, $ionicHistory) {
   $scope.root3BtnText = 'R3 Secondary'
   $scope.root3SecondaryButton = function() {
     $ionicActionSheet.show({
@@ -444,6 +504,10 @@ angular.module('ionicApp', ['ionic'])
 
   $scope.toggleNavBar = function() {
     $scope.hideNavBar = !$scope.hideNavBar;
+  };
+
+  $scope.clearCache = function() {
+    $ionicHistory.clearCache();
   };
 })
 
@@ -471,7 +535,29 @@ angular.module('ionicApp', ['ionic'])
 
 })
 
-.controller('Root6Ctrl', function($scope, $state, $ionicActionSheet) {
+.controller('Root6Ctrl', function($scope) {
+
+})
+
+.controller('Root8Ctrl', function($scope, $timeout) {
+
+  function update() {
+    $scope.titleUpdate++
+    $timeout(function(){
+      update()
+    }, 1000);
+  }
+
+  $scope.titleUpdate = 0;
+  update();
+
+})
+
+.controller('Slidebox1Ctrl', function($scope, $state, $ionicSlideBoxDelegate, $timeout) {
+
+  $timeout(function(){
+    $ionicSlideBoxDelegate.select(2)
+  })
 
 })
 
@@ -516,6 +602,38 @@ angular.module('ionicApp', ['ionic'])
     },
     getHipsterIpsum: function(){
       return $http.get('http://hipsterjesus.com/api/?paras=99');
+    }
+  };
+})
+
+.directive('searchBar', function() {
+  return {
+    restrict: 'E',
+    replace: true,
+    require: '?ngModel',
+    scope: {
+      model: '=?',
+      focused: '=?',
+      submit: '&',
+      clear: '&'
+    },
+    template:
+      '<form class="bar bar-header bar-energized item-input-inset" ng-submit="submit()">' +
+        '<div class="item-input-wrapper energized-bg" ng-class="focused" ng-click="focus()">' +
+          '<i class="icon ion-ios7-search placeholder-icon"></i>' +
+          '<input type="search"' +
+            'id="searchInput"' +
+            'placeholder="Search"' +
+            'ng-model="model"' +
+            'ng-focus="focused = \'text-left\'"' +
+            'ng-blur="focused = model.length?\'left\':\'centered\'">' +
+          '</div>' +
+          '<i class="icon ion-ios7-close dark" ng-show="model.length" ng-click="clear()"></i>' +
+      '</form>',
+    link: function(scope, elem, attrs, $document){
+      scope.focus = function(){
+        document.getElementById('searchInput').focus()
+      }
     }
   };
 });
